@@ -42,21 +42,25 @@ df = pd.read_csv('churn_data.csv')
 display(df.head())
 ddff = df
 ddff.Bandwidth_GB_Year = ddff.Bandwidth_GB_Year.astype('float')
-# Transform Bandwidth to Quartiles for perceivable groups within the market basket analysis
+
+Transform Bandwidth to Quartiles for perceivable groups within the market basket analysis
+
 ddff['Bandwidth'] = 0
 ddff.loc[(ddff['Bandwidth_GB_Year'] <=1236.47), 'Bandwidth'] = 1
 ddff.loc[(ddff['Bandwidth_GB_Year'].between(1236.48, 3279.53)), 'Bandwidth'] = 2
 ddff.loc[(ddff['Bandwidth_GB_Year'].between(3279.54, 5586.14)), 'Bandwidth'] = 3
 ddff.loc[(ddff['Bandwidth_GB_Year'] >=5586.14), 'Bandwidth'] = 4
 
-# Transform Tenure to Quartiles for perceivable groups within the market basket analysis
+Transform Tenure to Quartiles for perceivable groups within the market basket analysis
+
 ddff['Tenure_T'] = 0
 ddff.loc[(ddff['Tenure'] <=7.91), 'Tenure_T'] = 1
 ddff.loc[(ddff['Tenure'].between(7.92, 35.43)), 'Tenure_T'] = 2
 ddff.loc[(ddff['Tenure'].between(35.44, 61.48)), 'Tenure_T'] = 3
 ddff.loc[(ddff['Tenure'] >=61.48), 'Tenure_T'] = 4
 
-# Transform MonthlyCHarge to Quartiles for perceivable groups within the market basket analysis
+Transform MonthlyCHarge to Quartiles for perceivable groups within the market basket analysis
+
 ddff['Monthly'] = 0
 ddff.loc[(ddff['MonthlyCharge'] <=139.98), 'Monthly'] = 1
 ddff.loc[(ddff['MonthlyCharge'].between(139.99, 167.48)), 'Monthly'] = 2
